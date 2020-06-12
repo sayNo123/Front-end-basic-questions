@@ -112,3 +112,41 @@ b = {
     }
 }
 ```
+
+---
+
+### 第四题  
+
+```
+console.log(c);
+var c;
+function c(a) {
+  console.log(a);
+  var a = 3;
+  function a() {
+
+  }
+}
+c(2);
+```
+
+> 解析  
+
+```
+// 输出 
+
+function c(a){
+    console.log(a);
+    var a = 3;
+    function a(){
+    }
+}
+
+function a(){
+}
+```
+
+变量提升也有优先权，函数声明>arguments>变量声明。
+
+---
+
