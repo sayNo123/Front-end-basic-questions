@@ -171,3 +171,6 @@ Uncaught TypeError: c is not a function
 ```
 
 由于函数声明会提升,当函数外的 `console.log(c)` 执行时,`c` 已经被赋值为 `1`。因此,执行 `c(2)` 时会抛出 `TypeError`,因为 `1` 不是函数。
+
+---
+
