@@ -174,3 +174,66 @@ Uncaught TypeError: c is not a function
 
 ---
 
+### 第六题  
+
+```
+var name = "xinuo";
+(function() {
+  if(typeof name == "undefined") {
+    var name = "sayno";
+    console.log(name);
+  } else {
+    console.log(name);
+  }
+})();
+```
+
+> 解析  
+
+```
+// 输出
+sayno
+```
+
+自执行函数执行时，会先进行变量的提升，在执行时，代码相当于：  
+
+```
+var name = "xinuo";
+(function() {
+  var name; // 变量name会提升到当前作用于顶部
+  if(typeof name == "undefined") {
+    name = "sayno";
+    console.log(name);
+  } else {
+    console.log(name);
+  }
+})();
+```
+
+---
+
+### 第七题  
+
+```
+var a = 10;
+function test() {
+  a = 100;
+  console.log(a);
+  console.log(this.a);
+  var a;
+  console.log(a);
+}
+test();
+```
+
+> 解析  
+
+```
+// 输出
+100
+10
+100
+```
+
+`test()` 为函数独立调用，作用域中的 `this` 绑定为全局对象 `window`。  
+`test` 函数执行时，`var a` 都被提升到了作用域顶部，因此函数作用域中存在一个变量 `a`，所以在函数中访问的 `a` 都是局部作用域中的 `a`。  
